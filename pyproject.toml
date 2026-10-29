@@ -9,7 +9,7 @@ description = "Which hidden-text carriers can actually reach your LLM? Measure t
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
-authors = [{ name = "Victor", email = "victor@example.com" }]  # TODO: replace before PyPI release
+authors = [{ name = "vicmacabre" }]  # TODO: replace before PyPI release
 keywords = ["llm", "security", "prompt-injection", "rag", "unicode", "arabic", "red-team", "sarif"]
 classifiers = [
   "Development Status :: 3 - Alpha",
