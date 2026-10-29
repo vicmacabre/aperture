@@ -1,0 +1,11 @@
+__pycache__/
+*.egg-info/
+.venv/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.aperture/
+aperture-report.json
+*.html

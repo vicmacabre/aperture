@@ -1,0 +1,44 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "aperture-probe"
+version = "0.1.0"
+description = "Which hidden-text carriers can actually reach your LLM? Measure the exposure of a real pipeline, model or RAG app."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Victor" }]
+keywords = ["llm", "security", "prompt-injection", "rag", "unicode", "arabic", "red-team", "sarif"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Topic :: Security",
+  "Typing :: Typed",
+]
+dependencies = []  # zero runtime dependencies, on purpose: a security tool you can audit in one sitting
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6", "mypy>=1.10"]
+
+[project.scripts]
+aperture = "aperture.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/aperture"]
+
+[tool.ruff]
+line-length = 140
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["E501"]  # long user-facing prose strings are intentional
+
+[tool.mypy]
+strict = true
+files = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

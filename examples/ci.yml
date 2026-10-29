@@ -1,0 +1,18 @@
+# Drop into .github/workflows/: fails a PR when a hidden-text carrier becomes exposed, and uploads
+# SARIF to the repository's Security tab.
+name: aperture
+on: [pull_request]
+jobs:
+  exposure:
+    runs-on: ubuntu-latest
+    permissions: { contents: read, security-events: write }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install aperture-probe
+      - run: aperture run --config aperture.toml --sarif aperture.sarif --json aperture-report.json
+        env: { RAG_API_KEY: "${{ secrets.RAG_API_KEY }}" }
+      - uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with: { sarif_file: aperture.sarif }

@@ -1,0 +1,14 @@
+# Ollama / LM Studio / vLLM / llama.cpp server / OpenAI: anything that speaks /v1/chat/completions.
+[target]
+kind = "openai"
+base_url = "http://localhost:11434/v1"
+model = "llama3"
+key_env = ""                 # NAME of an env var, e.g. "OPENAI_API_KEY". Never put the key itself here.
+allow_private = true         # needed for localhost / LAN targets
+authorized_by = "Your Name"  # required: you own this target or may test it
+
+[run]
+trials = 3        # models are random: repeat each probe, get a rate
+concurrency = 4
+rate = 2.0        # requests per second
+max_calls = 300   # hard budget

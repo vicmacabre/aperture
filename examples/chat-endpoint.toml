@@ -1,0 +1,6 @@
+# Any chat endpoint: copy a request as "cURL (bash)" from your browser's network tab or API docs,
+# then replace the user's message text with {{PROBE}}.
+[target]
+kind = "curl"
+authorized_by = "Your Name"
+steps = ['''curl https://api.example.com/v1/chat -H 'Content-Type: application/json' -H 'x-api-key: ${MY_API_KEY}' -d '{"message": "{{PROBE}}"}' ''']

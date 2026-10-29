@@ -1,0 +1,15 @@
+# A RAG app is two requests: add a document, then ask a question about it.
+# {{PROBE}} marks where Aperture puts each test document.
+# Use a TEST index or tenant: probe documents are added to the index (v0.1 does not delete them).
+[target]
+kind = "curl"
+authorized_by = "Your Name"
+steps = [
+  '''curl https://rag.example.com/api/documents -H 'Content-Type: application/json' -H 'Authorization: Bearer ${RAG_API_KEY}' -d '{"title": "q3-report", "text": "{{PROBE}}"}' ''',
+  '''curl https://rag.example.com/api/ask -H 'Content-Type: application/json' -H 'Authorization: Bearer ${RAG_API_KEY}' -d '{"question": "Summarise the q3-report document."}' ''',
+]
+# response_path = "data.answer"   # only if the answer is not found automatically
+
+[run]
+trials = 3
+rate = 1.0
