@@ -10,7 +10,7 @@ Scanners ask *"is this document malicious?"* Aperture asks the question a defend
 It sends harmless, uniquely-marked probes through *your* model, RAG app or pipeline, watches what happens to each one at every stage,
 and reports the carriers that get through. It is a measurement instrument, not a content filter.
 
-Zero runtime dependencies. Stdlib only. About 1,200 lines you can audit in one sitting.
+Zero runtime dependencies. Stdlib only. under 2,000 lines you can audit in one sitting.
 
 ## Why measure the pipeline instead of scanning documents?
 
