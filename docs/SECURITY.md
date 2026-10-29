@@ -1,3 +1,11 @@
+## How to report a vulnerability
+
+Please **do not open a public issue**. Report privately via
+[GitHub Security Advisories](https://github.com/vicmacabre/aperture/security/advisories/new)
+or email **security@example.com**. <!-- TODO: replace before PyPI release -->
+
+Include: affected version, reproduction steps, and impact assessment.
+
 # Security model
 
 Aperture sends hidden-instruction probes to systems you point it at. Treat it like any other security tool.
