@@ -3,7 +3,7 @@ instruction below plus a generated canary: carriers transform it, they never aut
 
 from __future__ import annotations
 
-from collections.abc import Callable
+from collections.abc import Callable, Sequence
 from dataclasses import dataclass
 from fnmatch import fnmatch
 
@@ -54,10 +54,10 @@ def carrier(
     return register
 
 
-def select(include: list[str] | tuple[str, ...] = ("*",), exclude: list[str] = []) -> list[Carrier]:  # noqa: B006
+def select(include: list[str] | tuple[str, ...] = ("*",), exclude: Sequence[str] = ()) -> list[Carrier]:
     """Carriers whose name or family matches an include glob and no exclude glob. Controls always run."""
 
-    def hit(c: Carrier, pats: list[str] | tuple[str, ...]) -> bool:
+    def hit(c: Carrier, pats: Sequence[str]) -> bool:
         return any(fnmatch(c.name, p) or fnmatch(c.family, p) for p in pats)
 
     return [c for c in REGISTRY.values() if c.control or (hit(c, include) and not hit(c, exclude))]
