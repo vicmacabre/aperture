@@ -33,7 +33,8 @@ def check_host(url: str, allow_private: bool) -> None:
     parts = urlsplit(url)
     if parts.scheme not in ("http", "https") or not parts.hostname:
         raise Blocked("only http(s) URLs are allowed")
-    for info in socket.getaddrinfo(parts.hostname, parts.port or 443):
+    default_port = 443 if parts.scheme == "https" else 80
+    for info in socket.getaddrinfo(parts.hostname, parts.port or default_port):
         ip = ipaddress.ip_address(str(info[4][0]).split("%")[0])
         if ip.is_link_local or ip.is_multicast or ip.is_unspecified or ip.is_reserved:
             raise Blocked(f"{parts.hostname} resolves to a blocked address ({ip})")
