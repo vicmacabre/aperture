@@ -7,5 +7,24 @@ build/
 .mypy_cache/
 .ruff_cache/
 .aperture/
+
+# Test / demo artifacts
+r.json
+leaky.json
+hard.json
+*.sarif
+r.html
+report.html
+aperture.sarif
 aperture-report.json
-*.html
+/*.html
+
+# IDE / OS
+.DS_Store
+.idea/
+.vscode/
+
+# Coverage
+.coverage
+.coverage.*
+htmlcov/
