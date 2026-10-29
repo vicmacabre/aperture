@@ -23,7 +23,7 @@ classifiers = [
 dependencies = []  # zero runtime dependencies, on purpose: a security tool you can audit in one sitting
 
 [project.optional-dependencies]
-dev = ["pytest>=8", "ruff>=0.6", "mypy>=1.10"]
+dev = ["pytest>=8", "ruff>=0.6", "mypy>=1.10", "pytest-cov"]
 
 [project.scripts]
 aperture = "aperture.cli:main"

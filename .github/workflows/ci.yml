@@ -16,7 +16,11 @@ jobs:
       - run: ruff check .
       - run: ruff format --check .
       - run: mypy
-      - run: pytest -q
+      - run: pytest -q --cov=aperture --cov-report=xml
+      - uses: codecov/codecov-action@v4
+        with:
+          files: coverage.xml
+          fail_ci_if_error: false
       - name: Offline demo must show the leak and the fix
         run: |
           python -m aperture demo --json leaky.json && python -m aperture demo --hardened --json hard.json

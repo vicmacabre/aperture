@@ -1,7 +1,7 @@
 # Aperture
 
 [![CI](https://github.com/vicmacabre/aperture/actions/workflows/ci.yml/badge.svg)](https://github.com/vicmacabre/aperture/actions)
-![python](https://img.shields.io/badge/python-3.11%2B-blue) ![deps](https://img.shields.io/badge/dependencies-0-brightgreen) ![license](https://img.shields.io/badge/license-MIT-green)
+![python](https://img.shields.io/badge/python-3.11%2B-blue) ![deps](https://img.shields.io/badge/dependencies-0-brightgreen) ![license](https://img.shields.io/badge/license-MIT-green) [![codecov](https://codecov.io/gh/vicmacabre/aperture/branch/main/graph/badge.svg)](https://codecov.io/gh/vicmacabre/aperture)
 
 **Which hidden-text carriers can actually reach your LLM, and does your guardrail see them?**
 

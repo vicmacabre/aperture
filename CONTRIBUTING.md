@@ -26,9 +26,9 @@ A carrier is a single function registered with `@carrier(...)`:
 ```python
 from aperture.carriers import carrier
 
+
 @carrier("my_trick", "invisible", invisible=True)
-def my_trick(s: str) -> str:
-    ...
+def my_trick(s: str) -> str: ...
 ```
 
 Every carrier **must** satisfy the contract in
